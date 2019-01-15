@@ -1,0 +1,372 @@
+// chicken_user 用户表
+// Mid Mname Mpwd Email Phone Avatar User_name Gender
+INSERT INTO `chicken_user` VALUES(2,"当当",md("123456"),"dangdang@qq.com","13568445874","http://127.0.0.1:3000/img/login/code_1/01.jpg","yingying",0);
+INSERT INTO `chicken_user` VALUES(4,"依依",md("123456"),"yiyi@qq.com","13562565954","http://127.0.0.1:3000/img/login/code_1/02.jpg","yiting",0);
+INSERT INTO `chicken_user` VALUES(6,"吉吉",md("123456"),"jiji@qq.com","16841545214","http://127.0.0.1:3000/img/login/code_1/03.jpg","duoduo",1);
+INSERT INTO `chicken_user` VALUES(33,"莉莉",md("123456"),"lili@qq.com","13945312345","http://127.0.0.1:3000/img/login/code_1/04.jpg","xiaoli",0);
+INSERT INTO `chicken_user` VALUES(8,"嘚嘚",md("123456"),"dede@qq.com","11234654548","http://127.0.0.1:3000/img/login/code_1/05.jpg","dese",1);
+
+#创建产品分类表
+CREATE TABLE product_family(
+    fId INT PRIMARY KEY AUTO_INCREMENT,   #分类编号
+    fName VARCHAR(16)  NOT NULL   #分类名称
+)
+INSERT INTO product_family(fId,fName) VALUES(10,"文具");
+INSERT INTO product_family(fId,fName) VALUES(20,"数码影音");
+INSERT INTO product_family(fId,fName) VALUES(30,"IP周边");
+INSERT INTO product_family(fId,fName) VALUES(40,"乐器");
+INSERT INTO product_family(fId,fName) VALUES(50,"服饰配件");
+# 创建产品表
+CREATE TABLE chicken_product(
+    pId  INT PRIMARY KEY AUTO_INCREMENT,  #商品主键
+    pKind INT,  #商品分类
+    price DECIMAL(7,2),  #商品价格
+    pImg  varchar(50),   #商品图片
+    pDesc varchar(128),  #商品描述
+    FOREIGN KEY(pKind) REFERENCES product_family(fId)
+);
+
+#文具
+INSERT INTO chicken_product(pId,pKind,price,pImg,pDesc) VALUES(1,10,"29","http://127.0.0.1:3000/img/product/product_stat/product_stat.jpg","云音乐马卡龙系列手账笔记本");
+INSERT INTO chicken_product(pId,pKind,price,pImg,pDesc) VALUES(2,10,"9.9","http://127.0.0.1:3000/img/product/product_stat/product_stat1.jpg","单本装 网易云音乐口袋记事本");
+INSERT INTO chicken_product(pId,pKind,price,pImg,pDesc) VALUES(3,10,"99","http://127.0.0.1:3000/img/product/product_stat/product_stat2.jpg","网易云音乐金莳绘漆器封面记事本");
+INSERT INTO chicken_product(pId,pKind,price,pImg,pDesc) VALUES(4,10,"69","http://127.0.0.1:3000/img/product/product_stat/product_stat3.jpg","云音乐乐评笔记本(搭扣款)红色");
+INSERT INTO chicken_product(pId,pKind,price,pImg,pDesc) VALUES(5,10,"20","http://127.0.0.1:3000/img/product/product_stat/product_stat4.jpg","网易云音乐灵感记录本");
+INSERT INTO chicken_product(pId,pKind,price,pImg,pDesc) VALUES(6,10,"39","http://127.0.0.1:3000/img/product/product_stat/product_stat5.jpg","云音乐古韵系列笔记本四色可选");
+INSERT INTO chicken_product(pId,pKind,price,pImg,pDesc) VALUES(7,10,"149","http://127.0.0.1:3000/img/product/product_stat/product_stat6.jpg","瑞士Premec 派锐美科X网易云音乐 卡通钢笔");
+INSERT INTO chicken_product(pId,pKind,price,pImg,pDesc) VALUES(8,10,"59","http://127.0.0.1:3000/img/product/product_stat/product_stat7.jpg","Premec派锐美科大容量按压式中性笔10支装");
+INSERT INTO chicken_product(pId,pKind,price,pImg,pDesc) VALUES(9,10,"15.9","http://127.0.0.1:3000/img/product/product_stat/product_stat8.jpg","本来设计 原木质笔实木头签字笔鱼笔");
+#数码影音
+INSERT INTO chicken_product(pId,pKind,price,pImg,pDesc) VALUES(10,20,"128","http://127.0.0.1:3000/img/product/product_audio/Audio_1.jpg","JBL T120A 立体声入耳式耳机,手机音乐耳机 游戏耳机");
+INSERT INTO chicken_product(pId,pKind,price,pImg,pDesc) VALUES(11,20,"158","http://127.0.0.1:3000/img/product/product_audio/Audio_2.jpg","网易云音乐2019年音乐人日历(单册减30,20册减60)年历");
+INSERT INTO chicken_product(pId,pKind,price,pImg,pDesc) VALUES(12,20,"55","http://127.0.0.1:3000/img/product/product_audio/Audio_3.jpg","网易云音乐青春系列No.1音乐心针织帽");
+INSERT INTO chicken_product(pId,pKind,price,pImg,pDesc) VALUES(13,20,"199","http://127.0.0.1:3000/img/product/product_audio/Audio_4.jpg","网易云音乐定制款W800X头戴式音乐耳机");
+INSERT INTO chicken_product(pId,pKind,price,pImg,pDesc) VALUES(14,20,"29","http://127.0.0.1:3000/img/product/product_audio/Audio_5.jpg","弯头数据线快充2.4A苹果安卓Type-C玩游戏充电线");
+INSERT INTO chicken_product(pId,pKind,price,pImg,pDesc) VALUES(15,20,"39","http://127.0.0.1:3000/img/product/product_audio/Audio_6.jpg","音乐茶旅-茶饮订阅礼盒-四周音乐主题套装");
+INSERT INTO chicken_product(pId,pKind,price,pImg,pDesc) VALUES(16,20,"169","http://127.0.0.1:3000/img/product/product_audio/Audio_7.jpg","网易云音乐联名款漫步者W280X蓝牙耳机");
+INSERT INTO chicken_product(pId,pKind,price,pImg,pDesc) VALUES(17,20,"149","http://127.0.0.1:3000/img/product/product_audio/Audio_8.jpg","击音[触控级]降噪防水手势识别蓝牙运动耳机");
+
+#IP周边
+INSERT INTO chicken_product(pId,pKind,price,pImg,pDesc) VALUES(18,30,"9.9","http://127.0.0.1:3000/img/product/product_IP/product_IP.jpg","网易云音乐资料册-单个装 多多西西 云村家族");
+INSERT INTO chicken_product(pId,pKind,price,pImg,pDesc) VALUES(19,30,"35","http://127.0.0.1:3000/img/product/product_IP/product_IP1.jpg","网易云音乐吉祥物毛绒本 多多西西");
+INSERT INTO chicken_product(pId,pKind,price,pImg,pDesc) VALUES(20,30,"7","http://127.0.0.1:3000/img/product/product_IP/product_IP2.jpg","网易云音乐云村家族文件袋-多彩款单个装");
+INSERT INTO chicken_product(pId,pKind,price,pImg,pDesc) VALUES(21,30,"19","http://127.0.0.1:3000/img/product/product_IP/product_IP3.jpg","网易云音乐手机壳 吉祥物-森林音乐会款(多多西西)");
+INSERT INTO chicken_product(pId,pKind,price,pImg,pDesc) VALUES(22,30,"5.9","http://127.0.0.1:3000/img/product/product_IP/product_IP4.jpg","网易云音乐贴纸 吉祥物-MUSIC款(多多西西)");
+INSERT INTO chicken_product(pId,pKind,price,pImg,pDesc) VALUES(23,30,"89","http://127.0.0.1:3000/img/product/product_IP/product_IP5.jpg","网易云音乐抱枕毛毯  多多西西");
+INSERT INTO chicken_product(pId,pKind,price,pImg,pDesc) VALUES(24,30,"9.9","http://127.0.0.1:3000/img/product/product_IP/product_IP6.jpg","网易云音乐明信片 吉祥物-MUSIC款");
+INSERT INTO chicken_product(pId,pKind,price,pImg,pDesc) VALUES(25,30,"25","http://127.0.0.1:3000/img/product/product_IP/product_IP7.jpg","网易云音乐吉祥物掉绳公仔(多多西西)");
+#乐器
+INSERT INTO chicken_product(pId,pKind,price,pImg,pDesc) VALUES(26,40,"799","http://127.0.0.1:3000/img/product/product_musical/product_musical.jpg"," 如音大号11音鼓手碟鼓钢舌鼓乐器");
+INSERT INTO chicken_product(pId,pKind,price,pImg,pDesc) VALUES(27,40,"899","http://127.0.0.1:3000/img/product/product_musical/product_musical1.jpg"," 如音大号八音鼓12寸手碟鼓钢舌鼓乐");
+INSERT INTO chicken_product(pId,pKind,price,pImg,pDesc) VALUES(28,40,"699","http://127.0.0.1:3000/img/product/product_musical/product_musical2.jpg","YAMAHA雅马哈进口电吉他音箱GA15二代便携式练习音响");
+INSERT INTO chicken_product(pId,pKind,price,pImg,pDesc) VALUES(29,40,"2880","http://127.0.0.1:3000/img/product/product_musical/product_musical3.jpg","White Play 概念白款 尤克里里");
+INSERT INTO chicken_product(pId,pKind,price,pImg,pDesc) VALUES(30,40,"499","http://127.0.0.1:3000/img/product/product_musical/product_musical4.jpg","艳阳（Brightsun）23寸相思木全单尤克里里 侧扶手款");
+INSERT INTO chicken_product(pId,pKind,price,pImg,pDesc) VALUES(31,40,"368","http://127.0.0.1:3000/img/product/product_musical/product_musical5.jpg","雅马哈电子琴PSR-E363");
+INSERT INTO chicken_product(pId,pKind,price,pImg,pDesc) VALUES(32,40,"899","http://127.0.0.1:3000/img/product/product_musical/product_musical6.jpg"," 尤玛（Uma）UK-05SC UK-06SC 23寸单板尤克里里");
+INSERT INTO chicken_product(pId,pKind,price,pImg,pDesc) VALUES(33,40,"2180","http://127.0.0.1:3000/img/product/product_musical/product_musical7.jpg","日本TOMBO通宝24孔重音口琴9624成人初学新手入门儿童复音演奏");
+INSERT INTO chicken_product(pId,pKind,price,pImg,pDesc) VALUES(34,40,"3010","http://127.0.0.1:3000/img/product/product_musical/product_musical8.jpg","Populele Q1 智能尤克里里 咪萌款礼包套");
+INSERT INTO chicken_product(pId,pKind,price,pImg,pDesc) VALUES(35,40,"599","http://127.0.0.1:3000/img/product/product_musical/product_musical9.jpg","柏聆民谣木吉他 单板款");
+INSERT INTO chicken_product(pId,pKind,price,pImg,pDesc) VALUES(36,40,"1099","http://127.0.0.1:3000/img/product/product_musical/product_musical10.jpg","雄鹿23寸尤克里里 C型桃花心木");
+
+#服饰配件
+INSERT INTO chicken_product(pId,pKind,price,pImg,pDesc) VALUES(37,50,"59","http://127.0.0.1:3000/img/product/product_acc/product_acc.jpg"," 男式基础色织纯棉圆领T恤");
+INSERT INTO chicken_product(pId,pKind,price,pImg,pDesc) VALUES(38,50,"39","http://127.0.0.1:3000/img/product/product_acc/product_acc1.jpg"," 网易云音乐 MUSICMATE手提包 男女同款");
+INSERT INTO chicken_product(pId,pKind,price,pImg,pDesc) VALUES(39,50,"159","http://127.0.0.1:3000/img/product/product_acc/product_acc2.jpg"," 网易云音乐 运动斜挎包");
+INSERT INTO chicken_product(pId,pKind,price,pImg,pDesc) VALUES(40,50,"39","http://127.0.0.1:3000/img/product/product_acc/product_acc3.jpg"," 网易云音乐潮流系列卫衣NO.4");
+INSERT INTO chicken_product(pId,pKind,price,pImg,pDesc) VALUES(41,50,"39","http://127.0.0.1:3000/img/product/product_acc/product_acc4.jpg","网易云音乐潮流系列鸭舌帽");
+INSERT INTO chicken_product(pId,pKind,price,pImg,pDesc) VALUES(42,50,"148","http://127.0.0.1:3000/img/product/product_acc/product_acc5.jpg"," 网易云音乐 音乐潮流系列 NO. 3 音乐狗");
+INSERT INTO chicken_product(pId,pKind,price,pImg,pDesc) VALUES(43,50,"39","http://127.0.0.1:3000/img/product/product_acc/product_acc6.jpg","航海系列 100%真丝斜纹绸长巾");
+INSERT INTO chicken_product(pId,pKind,price,pImg,pDesc) VALUES(44,50,"199","http://127.0.0.1:3000/img/product/product_acc/product_acc7.jpg"," 网易云音乐潮流系列百搭工装长裤NO.4");
+INSERT INTO chicken_product(pId,pKind,price,pImg,pDesc) VALUES(45,50,"205","http://127.0.0.1:3000/img/product/product_acc/product_acc8.jpg","网易云音乐潮流系列 NO.6百搭长裤");
+INSERT INTO chicken_product(pId,pKind,price,pImg,pDesc) VALUES(46,50,"331","http://127.0.0.1:3000/img/product/product_acc/product_acc9.jpg"," 网易云音乐 音乐标语系列 NO. 3");
+INSERT INTO chicken_product(pId,pKind,price,pImg,pDesc) VALUES(47,50,"89","http://127.0.0.1:3000/img/product/product_acc/product_acc10.jpg"," 网易云音乐青春系列No.1音乐心针织帽");
+
+#chicken_singerlist 歌手表
+#创建歌手歌曲表
+CREATE TABLE chicken_playsong(
+    sId INT PRIMARY KEY AUTO_INCREMENT,  #歌曲Id
+    sKind INT,                           #歌曲分类
+    sName VARCHAR(128),                  #歌曲名字
+    sUrl VARCHAR(256),                   #存放歌曲的地址
+    FOREIGN KEY(sKind) REFERENCES chicken_singerlist(id)
+)
+#歌曲插入
+#A
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(1,1,"美丽大草原","E:/音乐链接/阿宝东玲/Six6_Official,光音坊唱片 - 张冬&阿宝 - 美丽大草原 (光音坊DJviper Remix）.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(2,1,"山丹丹开花红艳艳","E:/音乐链接/阿宝东玲/阿宝,王二妮,红都组合 - 山丹丹开花红艳艳.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(3,1,"高楼万丈平地起","E:/音乐链接/阿宝东玲/阿宝,王金东 - 高楼万丈平地起.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(4,1,"倾国倾城","E:/音乐链接/阿宝东玲/阿宝,熊汝霖 - 倾国倾城.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(5,1,"千与千寻","E:/音乐链接/阿宝东玲/羊阿宝 - 千与千寻（卡林巴琴）（Cover：群星）.mp3");
+#B
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(6,2,"带你去看海","E:/音乐链接/白雪/白雪 - 带你去看海.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(7,2,"人间自有真情","E:/音乐链接/白雪/白雪 - 人间自有真情在.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(8,2,"四季歌","E:/音乐链接/白雪/白雪 - 四季歌.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(9,2,"千里之外","E:/音乐链接/白雪/金志文,白雪 - 千里之外.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(10,2,"改变自己","E:/音乐链接/白雪/金志文,白雪,千斤组合 - 改变自己.mp3");
+#C
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(11,3,"Beautiful Love","E:/音乐链接/蔡健雅/Beautiful Love - 蔡健雅.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(12,3,"被驯服的象","E:/音乐链接/蔡健雅/被驯服的象 - 蔡健雅.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(13,3,"别找我麻烦","E:/音乐链接/蔡健雅/别找我麻烦 - 蔡健雅.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(14,3,"达尔文","E:/音乐链接/蔡健雅/达尔文 - 蔡健雅.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(15,3,"红色高跟鞋","E:/音乐链接/蔡健雅/红色高跟鞋 - 蔡健雅.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(16,3,"空白格","E:/音乐链接/蔡健雅/空白格 - 蔡健雅.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(17,3,"陌生人","E:/音乐链接/蔡健雅/陌生人 - 蔡健雅.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(18,3,"停格","E:/音乐链接/蔡健雅/停格 - 蔡健雅.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(19,3,"无底洞","E:/音乐链接/蔡健雅/无底洞 - 蔡健雅.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(20,3,"越来越不懂","E:/音乐链接/蔡健雅/越来越不懂 - 蔡健雅.m4a");
+#D
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(21,4,"Gentleman","E:/音乐链接/戴爱玲/Gentleman - 戴爱玲,刘伟德.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(22,4,"对的人","E:/音乐链接/戴爱玲/对的人 - 戴爱玲.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(23,4,"沸腾","E:/音乐链接/戴爱玲/沸腾 - 戴爱玲.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(24,4,"空港","E:/音乐链接/戴爱玲/空港 - 戴爱玲.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(25,4,"累格","E:/音乐链接/戴爱玲/累格 - 戴爱玲.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(26,4,"离骚","E:/音乐链接/戴爱玲/离骚 - 戴爱玲.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(27,4,"千年之恋","E:/音乐链接/戴爱玲/千年之恋 - 信乐团,戴爱玲.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(28,4,"我不离开","E:/音乐链接/戴爱玲/我不离开 - 戴爱玲,A-Lin.mp3");
+#E
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(29,5,"Don't","E:/音乐链接/Ed Sheeran/Don't - Ed Sheeran.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(30,5,"Galway Girl","E:/音乐链接/Ed Sheeran/Galway Girl - Ed Sheeran.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(31,5,"Happier","E:/音乐链接/Ed Sheeran/Happier - Ed Sheeran.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(32,5,"I See Fire","E:/音乐链接/Ed Sheeran/I See Fire - Ed Sheeran.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(33,5,"Nancy Mulligan","E:/音乐链接/Ed Sheeran/Nancy Mulligan - Ed Sheeran.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(34,5,"Perfect","E:/音乐链接/Ed Sheeran/Perfect - Ed Sheeran.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(35,5,"Photograph","E:/音乐链接/Ed Sheeran/Photograph - Ed Sheeran.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(36,5,"Shape of You","E:/音乐链接/Ed Sheeran/Shape of You - Ed Sheeran.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(37,5,"Supermarket Flowers","E:/音乐链接/Ed Sheeran/Supermarket Flowers - Ed Sheeran.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(38,5,"Thinking Out Loud","E:/音乐链接/Ed Sheeran/Thinking Out Loud - Ed Sheeran.mp3");
+
+#F
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(39,6,"不过求平凡","E:/音乐链接/方文琳/不过求平凡 - 方文琳.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(40,6,"困砂","E:/音乐链接/方文琳/困砂 - 方文琳.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(41,6,"麻木","E:/音乐链接/方文琳/麻木 - 方文琳.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(42,6,"玫瑰化石","E:/音乐链接/方文琳/玫瑰化石 - 方文琳.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(43,6,"明天有你","E:/音乐链接/方文琳/明天有你 - 方文琳.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(44,6,"秋天是寂寞的","E:/音乐链接/方文琳/秋天是寂寞的 - 方文琳.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(45,6,"失陷","E:/音乐链接/方文琳/失陷 - 方文琳.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(46,6,"忘了","E:/音乐链接/方文琳/忘了 - 方文琳.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(47,6,"我爱过的人我现在还爱","E:/音乐链接/方文琳/我爱过的人我现在还爱 - 方文琳.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(48,6,"游泳","E:/音乐链接/方文琳/游泳 - 方文琳.mp3");
+
+#G
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(49,7,"别用冰冷的爱靠近我","E:/音乐链接/甘萍/别用冰冷的爱靠近我 - 甘萍.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(50,7,"不是所有相逢都能守候","E:/音乐链接/甘萍/不是所有相逢都能守候 - 甘萍,李春波.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(51,7,"潮湿的心","E:/音乐链接/甘萍/潮湿的心 - 甘萍.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(52,7,"大哥你好吗?","E:/音乐链接/甘萍/大哥你好吗？ - 甘萍.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(53,7,"三个和尚","E:/音乐链接/甘萍/三个和尚 - 甘萍.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(54,7,"所有的往事","E:/音乐链接/甘萍/所有的往事 - 甘萍.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(55,7,"涛声依旧","E:/音乐链接/甘萍/涛声依旧 - 甘萍.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(56,7,"疼你的人","E:/音乐链接/甘萍/疼你的人 - 甘萍.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(57,7,"我不想说","E:/音乐链接/甘萍/我不想说 - 甘萍.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(58,7,"一个真实的故事","E:/音乐链接/甘萍/一个真实的故事 - 甘萍.mp3");
+
+#H
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(59,8,"分开以后","E:/音乐链接/海鸣威/分开以后 - 海鸣威.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(60,8,"工体爱情故事","E:/音乐链接/海鸣威/工体爱情故事 - 海鸣威.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(61,8,"老人与海","E:/音乐链接/海鸣威/老人与海 - 海鸣威,吴琼.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(62,8,"老人与海","E:/音乐链接/海鸣威/老人与海 - 海鸣威.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(63,8,"你的承诺","E:/音乐链接/海鸣威/你的承诺 - 海鸣威.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(64,8,"你的承诺","E:/音乐链接/海鸣威/你的承诺 - 泳儿,海鸣威.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(65,8,"人海","E:/音乐链接/海鸣威/人海 - 海鸣威.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(66,8,"我的回忆不是我的","E:/音乐链接/海鸣威/我的回忆不是我的 - 海鸣威,泳儿.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(67,8,"我的回忆不是我的","E:/音乐链接/海鸣威/我的回忆不是我的 - 海鸣威.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(68,8,"一个人的北京","E:/音乐链接/海鸣威/一个人的北京 - 海鸣威.mp3");
+
+#I
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(69,9,"Loser","E:/音乐链接/IsukuTa/Loser (中文翻唱版) - IsukuTa,Bunzbox.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(70,9,"太宠我","E:/音乐链接/IsukuTa/太宠我 - 陈昱志.mp3");
+
+#J
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(71,10,"For the love of a Princess","E:/音乐链接/James Horner/For the love of a Princess - James Horner,London Symphony Orchestra.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(72,10,"Futile Escape (From _Aliens_)","E:/音乐链接/James Horner/Futile Escape (From _Aliens_) - James Horner.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(73,10,"Goodbyes","E:/音乐链接/James Horner/Goodbyes - James Horner.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(74,10,"Hymn To The Sea","E:/音乐链接/James Horner/Hymn To The Sea - James Horner,Orchestra.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(75,10,"Legends Of The Fall","E:/音乐链接/James Horner/Legends Of The Fall - James Horner.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(76,10,"Main Title","E:/音乐链接/James Horner/Main Title - Young Peter - James Horner.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(77,10,"My Heart Will Go On","E:/音乐链接/James Horner/My Heart Will Go On - The City of Prague Philharmonic Orchestra,James Horner.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(78,10,"Rose","E:/音乐链接/James Horner/Rose - James Horner,Titanic Orchestra.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(79,10,"The Ludlows","E:/音乐链接/James Horner/The Ludlows - James Horner.mp3");
+
+#K
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(80,11,"痴心愿你知","E:/音乐链接/开心少女组/痴心愿你知 - 开心少女组.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(81,11,"开心放暑假","E:/音乐链接/开心少女组/开心放暑假 - 开心少女组.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(82,11,"开心乐园","E:/音乐链接/开心少女组/开心乐园 - 开心少女组.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(83,11,"快乐歌","E:/音乐链接/开心少女组/快乐歌 - 开心少女组.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(84,11,"理想","E:/音乐链接/开心少女组/理想 - 开心少女组.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(85,11,"良师颂","E:/音乐链接/开心少女组/良师颂 - 开心少女组.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(86,11,"天真的爱情","E:/音乐链接/开心少女组/天真的爱情 - 开心少女组.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(87,11,"新的一天","E:/音乐链接/开心少女组/新的一天 - 开心少女组.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(88,11,"一千个阳光晚上","E:/音乐链接/开心少女组/一千个阳光晚上 - 开心少女组.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(89,11,"一弯明月","E:/音乐链接/开心少女组/一弯明月 - 开心少女组.mp3");
+
+#L
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(90,12,"BAD BOY之风云再起","E:/音乐链接/L.A四贱客/BAD BOY之风云再起 - L.A四贱客.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(91,12,"Pure Energy","E:/音乐链接/L.A四贱客/Pure Energy - L.A四贱客.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(92,12,"That’s The Way","E:/音乐链接/L.A四贱客/That’s The Way - L.A四贱客.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(93,12,"大错特错不要来","E:/音乐链接/L.A四贱客/大错特错不要来 - L.A四贱客.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(94,12,"大家都有病","E:/音乐链接/L.A四贱客/大家都有病 - L.A四贱客.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(95,12,"恐怖喔","E:/音乐链接/L.A四贱客/恐怖喔 - L.A四贱客.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(96,12,"身骑白马","E:/音乐链接/L.A四贱客/身骑白马 - L.A四贱客.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(97,12,"我需要你的钱","E:/音乐链接/L.A四贱客/我需要你的钱 - L.A四贱客.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(98,12,"无聊的暗暝","E:/音乐链接/L.A四贱客/无聊的暗暝 - L.A四贱客.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(99,12,"夏天 (铃声)","E:/音乐链接/L.A四贱客/夏天 (铃声) - L.A四贱客.m4a");
+
+#M
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(100,13,"爱已成歌","E:/音乐链接/马常宝/爱已成歌 - 马常宝.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(101,13,"哥不愿做单身汉","E:/音乐链接/马常宝/哥不愿做单身汉 - 马常宝,王杰.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(102,13,"哥不愿做单身汉","E:/音乐链接/马常宝/哥不愿做单身汉 (伴奏) - 马常宝,王杰.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(103,13,"默默的等","E:/音乐链接/马常宝/默默的等 - 马常宝.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(104,13,"情恨","E:/音乐链接/马常宝/情恨 - 马常宝.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(105,13,"思念无期","E:/音乐链接/马常宝/思念无期 - 马常宝.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(106,13,"思念无期","E:/音乐链接/马常宝/思念无期 (伴奏) - 马常宝.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(107,13,"一壶老酒","E:/音乐链接/马常宝/一壶老酒 - 马常宝.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(108,13,"再唱姑娘山","E:/音乐链接/马常宝/再唱姑娘山 - 马常宝,于兰.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(109,13,"再唱姑娘山 (伴奏)","E:/音乐链接/马常宝/再唱姑娘山 (伴奏) - 马常宝,于兰.mp3");
+
+#N
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(110,14,"多情的姑娘多情的草原","E:/音乐链接/纳兰/多情的姑娘多情的草原 - 纳兰.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(111,14,"江南梦","E:/音乐链接/纳兰/江南梦 - 纳兰.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(112,14,"净莲","E:/音乐链接/纳兰/净莲 - 纳兰.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(113,14,"菩提","E:/音乐链接/纳兰/菩提 - 纳兰.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(114,14,"清风自来","E:/音乐链接/纳兰/清风自来 - 纳兰.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(115,14,"清心曲","E:/音乐链接/纳兰/清心曲 - 纳兰.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(116,14,"人生若只如初见","E:/音乐链接/纳兰/人生若只如初见 - 张连春.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(117,14,"心无尘","E:/音乐链接/纳兰/心无尘 - 纳兰.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(118,14,"一生痴情只为你","E:/音乐链接/纳兰/一生痴情只为你 - 纳兰,张天赋.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(119,14,"知己难求","E:/音乐链接/纳兰/知己难求 - 纳兰.mp3");
+
+#O
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(120,15,"OK情歌","E:/音乐链接/OK男女合唱团/OK情歌 - OK男女合唱团,罗大佑.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(121,15,"宝贝心肝","E:/音乐链接/OK男女合唱团/宝贝心肝 - OK男女合唱团.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(122,15,"断梦曲","E:/音乐链接/OK男女合唱团/断梦曲 - OK男女合唱团.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(123,15,"风吹风吹","E:/音乐链接/OK男女合唱团/风吹风吹 - OK男女合唱团,罗大佑.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(124,15,"告别","E:/音乐链接/OK男女合唱团/告别 - OK男女合唱团.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(125,15,"恋曲1939","E:/音乐链接/OK男女合唱团/恋曲1939 - OK男女合唱团.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(126,15,"闰月闰爱情","E:/音乐链接/OK男女合唱团/闰月闰爱情 - OK男女合唱团,罗大佑.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(127,15,"十八姑娘","E:/音乐链接/OK男女合唱团/十八姑娘 - OK男女合唱团.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(128,15,"冤家","E:/音乐链接/OK男女合唱团/冤家 - OK男女合唱团.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(129,15,"再会吧！素兰","E:/音乐链接/OK男女合唱团/再会吧！素兰 - OK男女合唱团.mp3");
+#P
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(130,16,"干物女（WeiWei）","E:/音乐链接/排骨教主/干物女（WeiWei） - 排骨教主.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(131,16,"红妆","E:/音乐链接/排骨教主/红妆 - 排骨教主.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(132,16,"君临天下","E:/音乐链接/排骨教主/君临天下 - 排骨教主.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(133,16,"齐天大圣","E:/音乐链接/排骨教主/齐天大圣 - 排骨教主.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(134,16,"牵丝戏","E:/音乐链接/排骨教主/牵丝戏 - 排骨教主.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(135,16,"清明上河图","E:/音乐链接/排骨教主/清明上河图 - 西瓜JUN,排骨教主.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(136,16,"霜雪千年","E:/音乐链接/排骨教主/霜雪千年 - 排骨教主.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(137,16,"逍遥缘","E:/音乐链接/排骨教主/逍遥缘 - 排骨教主.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(138,16,"续","E:/音乐链接/排骨教主/续 - 排骨教主.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(139,16,"庸人自扰","E:/音乐链接/排骨教主/庸人自扰 - 排骨教主.mp3");
+
+#Q
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(140,17,"爱的世界只有你","E:/音乐链接/祁隆/爱的世界只有你 - 祁隆.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(141,17,"唱着情歌流着泪","E:/音乐链接/祁隆/唱着情歌流着泪 - 祁隆.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(142,17,"从未这样心动过","E:/音乐链接/祁隆/从未这样心动过 - 祁隆.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(143,17,"等你等了那么久","E:/音乐链接/祁隆/等你等了那么久 - 祁隆,乐凡.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(144,17,"放下所有放不下你","E:/音乐链接/祁隆/放下所有放不下你 - 祁隆.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(145,17,"人生路","E:/音乐链接/祁隆/人生路 - 祁隆.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(146,17,"天在下雨我在想你","E:/音乐链接/祁隆/天在下雨我在想你 - 祁隆.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(147,17,"想着你亲爱的","E:/音乐链接/祁隆/想着你亲爱的 - 刘恺名,祁隆.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(148,17,"一生最爱的是你","E:/音乐链接/祁隆/一生最爱的是你 - 祁隆.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(149,17,"醉相思","E:/音乐链接/祁隆/醉相思 - 祁隆.mp3");
+
+#R
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(150,18,"Love Me Tonight","E:/音乐链接/Roger/Love Me Tonight - Roger,Doble Alma.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(151,18,"Lucky","E:/音乐链接/Roger/Lucky - Roger.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(152,18,"Roger","E:/音乐链接/Roger/Roger - Paco Osuna.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(153,18,"Roger","E:/音乐链接/Roger/Roger - Stefan Jós.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(154,18,"Slow And Easy (LP版","E:/音乐链接/Roger/Slow And Easy (LP版) - Zapp,Roger.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(155,18,"So Ruff, So Tuff","E:/音乐链接/Roger/So Ruff, So Tuff - Zapp,Roger.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(156,18,"Uncover","E:/音乐链接/Roger/Uncover - Roger.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(157,18,"Undo","E:/音乐链接/Roger/Undo - Roger.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(158,18,"魅力通城2017","E:/音乐链接/Roger/魅力通城2017 - 通城罗杰,陈津,胡甜,黑仔.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(159,18,"通城话","E:/音乐链接/Roger/通城话 - 通城罗杰.mp3");
+
+#S
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(160,19,"爱在冬天 (伴奏)","E:/音乐链接/单色源/爱在冬天 (伴奏) - 单色源.mp3");
+#T
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(161,20,"Call Me in the Morning (Explicit)","E:/音乐链接/The Streets/Call Me in the Morning (Explicit) - The Streets,Grim Sickers,Chip.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(162,20,"Don't Mug Yourself (Album Version)","E:/音乐链接/The Streets/Don't Mug Yourself (Album Version) - The Streets.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(163,20,"Dry Your Eyes","E:/音乐链接/The Streets/Dry Your Eyes - The Streets.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(164,20,"Let's Push Things Forward (Album Version)","E:/音乐链接/The Streets/Let's Push Things Forward (Album Version) - The Streets.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(165,20,"OMG","E:/音乐链接/The Streets/OMG - The Streets.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(166,20,"The Streets","E:/音乐链接/The Streets/The Streets - Jay-Z,R. Kelly.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(167,20,"The Streets","E:/音乐链接/The Streets/The Streets - Treasure.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(168,20,"The Streets","E:/音乐链接/The Streets/The Streets - W.C.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(169,20,"The Streets","E:/音乐链接/The Streets/The Streets (explicit Album Version Explicit) - WC,Snoop Dogg,Nate Dogg.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(170,20,"The Streets (Re Twist Explicit)","E:/音乐链接/The Streets/The Streets (Re Twist Explicit) - WC And The Maad Circle.mp3");
+
+#U
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(171,21,"Candy (Explicit)","E:/音乐链接/UGK/Candy (Explicit) - UGK.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(172,21,"Heaven (Explicit)","E:/音乐链接/UGK/Heaven (Explicit) - UGK.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(173,21,"Like Yesterday (Explicit)","E:/音乐链接/UGK/Like Yesterday (Explicit) - UGK.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(174,21,"Pocket Full of Stones","E:/音乐链接/UGK/Pocket Full of Stones - UGK.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(175,21,"Short Texas","E:/音乐链接/UGK/Short Texas - UGK.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(176,21,"Something Good","E:/音乐链接/UGK/Something Good - UGK.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(177,21,"The Game Belongs To Me","E:/音乐链接/UGK/The Game Belongs To Me - UGK.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(178,21,"Ugk","E:/音乐链接/UGK/Ugk - Antmack.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(179,21,"Ugk","E:/音乐链接/UGK/Ugk - Legendvry.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(180,21,"What Up My Boy","E:/音乐链接/UGK/What Up My Boy - UGK.mp3");
+#V
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(181,22,"Ain't Talkin' 'Bout Love (Album Version)","E:/音乐链接/Van Halen/Ain't Talkin' 'Bout Love (Album Version) - Van Halen.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(182,22,"Can't Stop Lovin' You (Album Version)","E:/音乐链接/Van Halen/Can't Stop Lovin' You (Album Version) - Van Halen.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(183,22,"Dance The Night Away","E:/音乐链接/Van Halen/Dance The Night Away - Van Halen.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(184,22,"Dreams (Album Version)","E:/音乐链接/Van Halen/Dreams (Album Version) - Van Halen.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(185,22,"Eruption (Album Version)","E:/音乐链接/Van Halen/Eruption (Album Version) - Van Halen.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(186,22,"Feel Your Love Tonight (Album Version) ","E:/音乐链接/Van Halen/Feel Your Love Tonight (Album Version) - Van Halen.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(187,22,"Hot For Teacher","E:/音乐链接/Van Halen/Hot For Teacher - Van Halen.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(188,22,"Jump","E:/音乐链接/Van Halen/Jump - Van Halen.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(189,22,"Panama","E:/音乐链接/Van Halen/Panama - Van Halen.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(190,22,"Right Now (Album Version)","E:/音乐链接/Van Halen/Right Now (Album Version) - Van Halen.mp3");
+
+#W
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(191,23,"Adios, Noniño","E:/音乐链接/Series/Adios, Noniño - Sexteto Mayor.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(192,23,"El Firulete","E:/音乐链接/Series/El Firulete - Sexteto Mayor.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(193,23,"Halcon Negro (Live)","E:/音乐链接/Series/Halcon Negro (Live) - Sexteto Mayor.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(194,23,"La Cumparsita (Live)","E:/音乐链接/Series/La Cumparsita (Live) - Sexteto Mayor.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(195,23,"La Peregrinación","E:/音乐链接/Series/La Peregrinación - Sexteto Mayor.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(196,23,"Lluvia de Estrellas","E:/音乐链接/Series/Lluvia de Estrellas - Sexteto Mayor.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(197,23,"Orgullo Criollo","E:/音乐链接/Series/Orgullo Criollo - Sexteto Mayor.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(198,23,"Quejas de Bandoneón (Live)","E:/音乐链接/Series/Quejas de Bandoneón (Live) - Sexteto Mayor.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(199,23,"Selección de Milongas","E:/音乐链接/Series/Selección de Milongas - Sexteto Mayor.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(200,23,"Selección de Temas de Piazzolla (Live)","E:/音乐链接/Series/Selección de Temas de Piazzolla (Live) - Sexteto Mayor.mp3");
+
+#X
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(201,24,"Buttterfly Fly Away","E:/音乐链接/香奈儿/Buttterfly Fly Away - 香奈儿.m4a");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(202,24,"Chanel (Explicit)","E:/音乐链接/香奈儿/Chanel (Explicit) - Frank Ocean.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(203,24,"荷塘月色","E:/音乐链接/香奈儿/荷塘月色 - 香奈儿.m4a");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(204,24,"挥着翅膀的女孩 (Live)","E:/音乐链接/香奈儿/挥着翅膀的女孩 (Live) - 香奈儿.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(205,24,"亲爱的老师","E:/音乐链接/香奈儿/亲爱的老师 - 香奈儿.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(206,24,"太空船","E:/音乐链接/香奈儿/太空船 - 香奈儿.m4a");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(207,24,"童一首歌","E:/音乐链接/香奈儿/童一首歌 - 香奈儿.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(208,24,"香奈儿","E:/音乐链接/香奈儿/香奈儿 - 王菲.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(209,24,"香奈儿 (Live)","E:/音乐链接/香奈儿/香奈儿 (Live) - 陈嘉歆.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(210,24,"致青春 ","E:/音乐链接/香奈儿/致青春 - 香奈儿.m4a");
+
+#Y
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(211,25,"妹妹嫁给我吧","E:/音乐链接/乐洋/妹妹嫁给我吧 - 乐洋.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(212,25,"妹妹嫁给我吧 (DJ版)","E:/音乐链接/乐洋/妹妹嫁给我吧 (DJ版) - 乐洋.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(213,25,"亲爱的谢谢你","E:/音乐链接/乐洋/亲爱的谢谢你 - 乐洋.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(214,25,"亲爱的谢谢你 (DJ版)","E:/音乐链接/乐洋/亲爱的谢谢你 (DJ版) - 乐洋.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(215,25,"三生三世只为你","E:/音乐链接/乐洋/三生三世只为你 - 乐洋.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(216,25,"我还在一直等你","E:/音乐链接/乐洋/我还在一直等你 - 乐洋.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(217,25,"我还在一直等你 (DJ版)","E:/音乐链接/乐洋/我还在一直等你 (DJ版) - 乐洋.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(218,25,"缘分让我们今生相遇","E:/音乐链接/乐洋/缘分让我们今生相遇 - 乐洋.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(219,25,"缘分让我们今生相遇 (伴奏)","E:/音乐链接/乐洋/缘分让我们今生相遇 (伴奏) - 乐洋.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(220,25,"缘分让我们今生相遇 (女版伴奏)","E:/音乐链接/乐洋/缘分让我们今生相遇 (女版伴奏) - 乐洋.mp3");
+#Z
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(221,26,"カラフル。 (色彩缤纷。)","E:/音乐链接/沢井美空/カラフル。 (色彩缤纷。) - 沢井美空.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(222,26,"ごめんね、いいコじゃいられない。 (对不起，不能当一个好孩子。)","E:/音乐链接/ごめんね、いいコじゃいられない。 (对不起，不能当一个好孩子。) - 沢井美空.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(223,26,"ごめんね、いいコじゃいられない。 (对不起，不能当一个好孩子。) (Anime ver.)","E:/音乐链接/ごめんね、いいコじゃいられない。 (对不起，不能当一个好孩子。) (Anime ver.) - 沢井美空.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(224,26,"こんな世界、知りたくなかった。 (这样的世界，我不想了解。) ","E:/音乐链接/こんな世界、知りたくなかった。 (这样的世界，我不想了解。) - 沢井美空.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(225,26,"なきむし。 (爱哭鬼。)","E:/音乐链接/なきむし。 (爱哭鬼。) - 沢井美空.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(226,26,"愛しい人 (心爱之人)","E:/音乐链接/愛しい人 (心爱之人) - 沢井美空.mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(227,26,"月灯り (月光)","E:/音乐链接/月灯り (月光) - 雨宮天 (あまみや そら).mp3");
+INSERT INTO chicken_playsong(sId,sKind,sName,sUrl) VALUES(228,26,"卒業メモリーズ~サヨナラ、あなた。~ (毕业回忆~再见了 亲爱的你。~)","E:/音乐链接/卒業メモリーズ~サヨナラ、あなた。~ (毕业回忆~再见了 亲爱的你。~) - 沢井美空.mp3");
+
+
+
+
+
+
+
+
